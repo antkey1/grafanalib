@@ -1082,6 +1082,7 @@ class Graph(object):
         validator=instance_of(YAxes),
     )
     alert = attr.ib(default=None)
+    interval = attr.ib(default=None)
 
     def to_json_data(self):
         graphObject = {
@@ -1122,6 +1123,7 @@ class Graph(object):
             'type': GRAPH_TYPE,
             'xaxis': self.xAxis,
             'yaxes': self.yAxes,
+            'interval': self.interval,
         }
         if self.alert:
             graphObject['alert'] = self.alert
