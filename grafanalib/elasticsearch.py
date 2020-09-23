@@ -322,6 +322,7 @@ class ElasticsearchTarget(object):
     """
 
     alias = attr.ib(default=None)
+    datasource = attr.ib(default=None)
     bucketAggs = attr.ib(
         default=attr.Factory(lambda: [DateHistogramGroupBy()]),
     )
@@ -358,6 +359,7 @@ class ElasticsearchTarget(object):
         return {
             'alias': self.alias,
             'bucketAggs': self.bucketAggs,
+            'datasource': self.datasource,
             'metrics': self.metricAggs,
             'query': self.query,
             'refId': self.refId,
